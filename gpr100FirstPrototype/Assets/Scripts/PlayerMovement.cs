@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //movement vars
     private Rigidbody2D _rb;
