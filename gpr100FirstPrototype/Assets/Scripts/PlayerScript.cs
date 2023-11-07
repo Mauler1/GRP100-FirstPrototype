@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     //movement vars
     private Rigidbody2D _rb;
-    private float speed = 40f;
-    private float _xMove;
-    private float _yMove;
+    Vector2 movement;
+    Vector2 mousePos;
+    public Camera cam;
+    private float speed = 5f;
 
     //player status vars
     public static float health = 25;
@@ -26,20 +28,26 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         CheckInput();
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate(){
 
         
+         _rb.MovePosition(_rb.position + movement * speed * Time.fixedDeltaTime);
 
-         _rb.AddForce(new Vector2(_xMove, _yMove) * speed);
+         Vector2 lookDir = mousePos - _rb.position;
+         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+
+         _rb.rotation = angle;
 
     }
 
     void CheckInput(){
 
-        _xMove = Input.GetAxis("Horizontal");
-        _yMove = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
     }
 }
