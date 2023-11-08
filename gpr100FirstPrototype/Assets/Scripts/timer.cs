@@ -84,6 +84,10 @@ public class timer : MonoBehaviour
             
 
             timeDisp.text = convTime.ToString() + ":" + convSec.ToString();
+            if(convSec < 10)
+            {
+                timeDisp.text = convTime.ToString() + ":0" + convSec.ToString();
+            }
         }
 
     }
