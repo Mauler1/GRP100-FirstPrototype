@@ -14,9 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 5f;
 
     //player status vars
-    public static float health = 25;
+    public float health = 3;
     public static int damage = 5;
-
+    public sceneChange playerDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckInput();
+        if(health <= 0)
+        {
+            playerDeath.SwitchScene();
+        }
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
@@ -49,5 +53,9 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+    }
+    public void hp(int damage)
+    {
+        health -= damage;
     }
 }
