@@ -702,8 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Maxhealth: 3
-  damage: 0
-  playerMovement: {fileID: 2132526976}
+  health: 0
 --- !u!114 &1179736986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 626461520}
-  speed: 30
+  speed: 40
 --- !u!212 &1179736987
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1554,17 +1553,6 @@ MonoBehaviour:
   firePoint: {fileID: 2132526974}
   bulletPrefab: {fileID: 7766393095338797730, guid: 9180e71bc17d8a94aae5a1be9ff258bc, type: 3}
   bulletForce: 20
---- !u!114 &2132526976 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1960280896370667078, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
-  m_PrefabInstance: {fileID: 1380253048}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626461520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55502e433e606e54f9a685af9d81bbe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
