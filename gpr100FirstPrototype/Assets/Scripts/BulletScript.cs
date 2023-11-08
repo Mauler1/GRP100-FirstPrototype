@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public AiHealthAndDamage damage;
     void OnCollisionEnter2D(Collision2D collision){
 
         Destroy(gameObject);
-        damage.TakeHit(1);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       // Destroy(gameObject);
+       Destroy(gameObject);
+       AiHealthAndDamage enemy = collision.GetComponent<AiHealthAndDamage>();
+       if(enemy != null){
+            enemy.TakeHit(1);
+       }
     }
 
 }

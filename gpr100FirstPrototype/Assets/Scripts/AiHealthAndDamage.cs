@@ -6,28 +6,7 @@ public class AiHealthAndDamage : MonoBehaviour
 {
     
     public float Maxhealth = 3f;
-    float health;
-    public float damage = 1;
-    public PlayerMovement playerMovement;
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        Debug.Log("Start doing damage");
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("Stop doing damage");
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        Debug.Log("Continue damage");
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        playerMovement.hp(1);
-    }
+    public float health;
 
     private void Start()
     {
