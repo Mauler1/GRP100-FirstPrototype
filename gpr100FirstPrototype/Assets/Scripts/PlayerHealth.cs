@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 5;
+    public float health = 10;
     public sceneChange playerDeath;
 
     // Start is called before the first frame update
@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     void Update(){
 
         if(health <= 0){
-            Console.WriteLine("dead");
+            playerDeath.SwitchScene();
         }
 
     }
@@ -23,6 +23,11 @@ public class PlayerHealth : MonoBehaviour
        AiHealthAndDamage enemy = collision.GetComponent<AiHealthAndDamage>();
        if(enemy != null){
             health -= 1;
+            Destroy(enemy.gameObject);
        }
+    }
+    public float getHealth()
+    {
+           return health;
     }
 }

@@ -15,7 +15,7 @@ public class BulletScript : MonoBehaviour
        Destroy(gameObject);
        AiHealthAndDamage enemy = collision.GetComponent<AiHealthAndDamage>();
        if(enemy != null){
-            enemy.TakeHit(1);
+            enemy.TakeHit(2);
        }
     }
 
