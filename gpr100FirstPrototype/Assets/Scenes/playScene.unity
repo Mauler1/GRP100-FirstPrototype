@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 626461520}
-  speed: 1
+  speed: 30
 --- !u!212 &1179736987
 SpriteRenderer:
   m_ObjectHideFlags: 0
