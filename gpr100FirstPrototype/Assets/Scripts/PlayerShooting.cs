@@ -7,15 +7,30 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
+    public float shotTime = 2;
+    public bool shootAgain = true;
+    public float timer;
 
     // Update is called once per frame
     void Update()
     {
         
-        if(Input.GetButtonDown("Fire1")){
+        if(shootAgain && Input.GetButton("Fire1")){
 
             Shoot();
+            shootAgain = false;
+            timer = 0;
 
+        }
+        if (timer < shotTime){
+
+            timer += Time.deltaTime;
+
+            if(timer >= shotTime){
+
+                shootAgain = true;
+
+            }
         }
 
     }
