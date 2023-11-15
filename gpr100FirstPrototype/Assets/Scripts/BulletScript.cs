@@ -6,6 +6,11 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject hitEffect;
+    public int score;
+    private void Start()
+    {
+        score = 0;
+    }
     void OnCollisionEnter2D(Collision2D collision){
 
         Destroy(gameObject);

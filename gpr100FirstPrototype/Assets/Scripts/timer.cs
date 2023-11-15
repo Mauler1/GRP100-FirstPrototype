@@ -17,7 +17,9 @@ public class timer : MonoBehaviour
     public GameObject speedy;
     public GameObject tanky;
     public GameObject boss1;
+    public TextMeshProUGUI scoreDisp;
     public Transform spawnPoint;
+    private int score;
     private int xRand, yRand, negXRand, negYRand, spawnNum;
     private bool bossHappen = false;
     // Start is called before the first frame update
@@ -27,10 +29,18 @@ public class timer : MonoBehaviour
         QualitySettings.vSyncCount = 0;  // this disables vsync so I can set the frame rate to limit the timer
         Application.targetFrameRate = 60; // hoepfully limit the frame rate
     }
-
+    private void spawner(int spawnNum, GameObject spawn, Vector3 additive)
+    {
+        for(int i = 1; i <= spawnNum; i++)
+        {
+            GameObject spawned = Instantiate(spawn, spawnPoint.position + additive, spawnPoint.rotation);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        
+        scoreDisp.text = score.ToString();
         xRand = Random.Range(10, 30);
         yRand = Random.Range(10, 30);
         spawnNum = Random.Range(1, 4);
@@ -69,93 +79,60 @@ public class timer : MonoBehaviour
                 {
                     if(convTime < 1)
                      {
-                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
-                        GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
-                        GameObject spawned5 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        spawner(4, enemy, additive1);
                     }
                     else if(convTime < 2)
                     {
-                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
-                        GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
-
+                        spawner(4, enemy, additive1);
                     }
                     else if (convTime < 3)
                     {
-                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        spawner(3, enemy, additive1);
                     }
                     else
                     {
-                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        spawner(2, enemy, additive1);
                     }
                 }
                 else if (spawnNum == 2)
                 {
                     if (convTime < 1)
                     {
-                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
-                        GameObject spawned4 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
-                        GameObject spawned5 = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        spawner(4, speedy, additive1);
                     }
                     else if (convTime < 2)
                     {
-                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
-                        GameObject spawned4 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
-
+                        spawner(4, speedy, additive1);
                     }
                     else if (convTime < 3)
                     {
-                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
-                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        spawner(3, speedy, additive1);
                     }
                     else
                     {
-                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
-                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        spawner(2, speedy, additive1);
                     }
-                    
+
                 }
                 else if (spawnNum == 3)
                     {
-                        if (convTime < 1)
-                        {
-                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
-                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
-                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
-                            GameObject spawned4 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
-                            GameObject spawned5 = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
-                        }
-                        else if (convTime < 2)
-                        {
-                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
-                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
-                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
-                            GameObject spawned4 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
-
-                        }
-                        else if (convTime < 3)
-                        {
-                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
-                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
-                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
-                        }
-                        else
-                        {
-                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
-                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
-                        }
+                    if (convTime < 1)
+                    {
+                        spawner(4, tanky, additive1);
                     }
+                    else if (convTime < 2)
+                    {
+                        spawner(4, tanky, additive1);
+                    }
+                    else if (convTime < 3)
+                    {
+                        spawner(3, tanky, additive1);
+                    }
+                    else
+                    {
+                        spawner(2, tanky, additive1);
+                    }
+                }
 
             }
             
