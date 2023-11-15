@@ -25,6 +25,17 @@ public class PlayerHealth : MonoBehaviour
             health -= 1;
             Destroy(enemy.gameObject);
        }
+        bossHealth boss = collision.GetComponent<bossHealth>();
+        if (boss != null)
+        {
+            health -= 1;
+        }
+        ShieldHpAndDamage shield = collision.GetComponent<ShieldHpAndDamage>();
+        if (shield != null)
+        {
+            health -= 1;
+        }
+
     }
     public float getHealth()
     {

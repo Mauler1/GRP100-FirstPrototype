@@ -10,10 +10,14 @@ public class sceneChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(sceneName != "gameOverScene")
         {
-            SwitchScene();
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                SwitchScene();
+            }
         }
+
     }
     public void SwitchScene()
     {

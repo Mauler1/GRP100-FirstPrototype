@@ -14,10 +14,12 @@ public class timer : MonoBehaviour
     public TextMeshProUGUI timeDisp;
     private bool pauseCheck;
     public GameObject enemy;
+    public GameObject speedy;
+    public GameObject tanky;
+    public GameObject boss1;
     public Transform spawnPoint;
-    public PlayerHealth healthCheck;
-    public TextMeshProUGUI healthDisp;
-    private float tempHealth;
+    private int xRand, yRand, negXRand, negYRand, spawnNum;
+    private bool bossHappen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +31,11 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int xRand = Random.Range(10, 30);
-        int yRand = Random.Range(10, 30);
-        int negXRand = Random.Range(-10, -30);
-        int negYRand = Random.Range(-10, -30);
+        xRand = Random.Range(10, 30);
+        yRand = Random.Range(10, 30);
+        spawnNum = Random.Range(1, 4);
+        negXRand = Random.Range(-10, -30);
+        negYRand = Random.Range(-10, -30);
         Vector3 additive1 = new Vector3(xRand, yRand, 0f);
         Vector3 additive2 = new Vector3(negXRand, negYRand, 0f);
         Vector3 additive3 = new Vector3(xRand, negYRand, 0f);
@@ -48,8 +51,6 @@ public class timer : MonoBehaviour
          * */
         if(pauseCheck != true)
         {
-            tempHealth = healthCheck.getHealth() / 2;
-            healthDisp.text = tempHealth.ToString();
             timeGoal--;
             if (timeGoal <= 0)
             {
@@ -57,35 +58,105 @@ public class timer : MonoBehaviour
             }
             convTime = (timeGoal / 60) / 60;
             convSec = (timeGoal / 60) % 60;
+            if(timeGoal <= 7200 && bossHappen != true)
+            {
+                GameObject spawned = Instantiate(boss1, spawnPoint.position + additive1, spawnPoint.rotation);
+                bossHappen = true;
+            }
             if(timeGoal % 60 == 0)
             {
-                if(convTime < 1)
+                if(spawnNum == 1)
                 {
-                    GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                    GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
-                    GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
-                    GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
-                    GameObject spawned5 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                }
-                else if(convTime < 2)
-                {
-                    GameObject spawned = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
-                    GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                    GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
-                    GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
+                    if(convTime < 1)
+                     {
+                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
+                        GameObject spawned5 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                    }
+                    else if(convTime < 2)
+                    {
+                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        GameObject spawned4 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
 
+                    }
+                    else if (convTime < 3)
+                    {
+                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
+                    }
+                    else
+                    {
+                        GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
+                    }
                 }
-                else if (convTime < 3)
+                else if (spawnNum == 2)
                 {
-                    GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                    GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive4, spawnPoint.rotation);
-                    GameObject spawned3 = Instantiate(enemy, spawnPoint.position + additive2, spawnPoint.rotation);
+                    if (convTime < 1)
+                    {
+                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        GameObject spawned4 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
+                        GameObject spawned5 = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                    }
+                    else if (convTime < 2)
+                    {
+                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
+                        GameObject spawned4 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
+
+                    }
+                    else if (convTime < 3)
+                    {
+                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive4, spawnPoint.rotation);
+                        GameObject spawned3 = Instantiate(speedy, spawnPoint.position + additive2, spawnPoint.rotation);
+                    }
+                    else
+                    {
+                        GameObject spawned = Instantiate(speedy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(speedy, spawnPoint.position + additive3, spawnPoint.rotation);
+                    }
+                    
                 }
-                else
-                {
-                    GameObject spawned = Instantiate(enemy, spawnPoint.position + additive1, spawnPoint.rotation);
-                    GameObject spawned2 = Instantiate(enemy, spawnPoint.position + additive3, spawnPoint.rotation);
-                }
+                else if (spawnNum == 3)
+                    {
+                        if (convTime < 1)
+                        {
+                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
+                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
+                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
+                            GameObject spawned4 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
+                            GameObject spawned5 = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
+                        }
+                        else if (convTime < 2)
+                        {
+                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
+                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
+                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
+                            GameObject spawned4 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
+
+                        }
+                        else if (convTime < 3)
+                        {
+                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
+                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive4, spawnPoint.rotation);
+                            GameObject spawned3 = Instantiate(tanky, spawnPoint.position + additive2, spawnPoint.rotation);
+                        }
+                        else
+                        {
+                            GameObject spawned = Instantiate(tanky, spawnPoint.position + additive1, spawnPoint.rotation);
+                            GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
+                        }
+                    }
+
             }
             
 
