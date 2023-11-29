@@ -9,6 +9,7 @@ public class BoomeyHealth : MonoBehaviour
     public float health;
     public float BoomRange = 300;
     public timer scoreChanger;
+    public GameObject hitEffect;
 
 
     private void Start()
@@ -23,6 +24,9 @@ public class BoomeyHealth : MonoBehaviour
         if (health <= 0)
         {
             scoreChanger.scoreChange(1);
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            effect.transform.localScale = new Vector3(30, 30, 1);
+            Destroy(effect, 0.5f);
             var hitColliders = Physics2D.OverlapCircleAll(transform.position, BoomRange);
             foreach (var hitCollider in hitColliders) 
             {

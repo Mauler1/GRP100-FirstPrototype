@@ -17,6 +17,7 @@ public class timer : MonoBehaviour
     public GameObject enemy;
     public GameObject speedy;
     public GameObject tanky;
+    public GameObject boomy;
     public GameObject boss1;
     public Transform spawnPoint;
     private int xRand, yRand, negXRand, negYRand, spawnNum, score = 0;
@@ -39,7 +40,7 @@ public class timer : MonoBehaviour
     {
         xRand = Random.Range(10, 30);
         yRand = Random.Range(10, 30);
-        spawnNum = Random.Range(1, 4);
+        spawnNum = Random.Range(1, 5);
         negXRand = Random.Range(-10, -30);
         negYRand = Random.Range(-10, -30);
         Vector3 additive1 = new Vector3(xRand, yRand, 0f);
@@ -162,6 +163,28 @@ public class timer : MonoBehaviour
                             GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
                         }
                     }
+                else if (spawnNum == 4 && timeGoal <= 10800)
+                {
+                    if (convTime < 1)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(boomy, spawnPoint.position + additive2, spawnPoint.rotation);
+                    }
+                    else if (convTime < 2)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive3, spawnPoint.rotation);
+
+
+                    }
+                    else if (convTime < 3)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive1, spawnPoint.rotation);
+                    }
+                    else
+                    {
+                        GameObject spawned2 = Instantiate(boomy, spawnPoint.position + additive3, spawnPoint.rotation);
+                    }
+                }
 
             }
             
