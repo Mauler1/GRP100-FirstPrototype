@@ -22,6 +22,8 @@ public class timer : MonoBehaviour
     public Transform spawnPoint;
     private int xRand, yRand, negXRand, negYRand, spawnNum, score = 0;
     private bool bossHappen = false;
+    public PlayerShooting speedChange;
+    private bool incSpeed = true, incSpeed2 = true, incSpeed3 = true, incSpeed4 = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,30 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (score >=40 && incSpeed != false)
+        {
+                speedChange.shootSpeed(0.2f);
+                incSpeed = false;
+                Debug.Log("call shorten speed");
+        }
+        else if (score >= 80 && incSpeed2 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed2 = false;
+            Debug.Log("call shorten speed");
+        }
+        else if (score >= 120 && incSpeed3 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed3 = false;
+            Debug.Log("call shorten speed");
+        }
+        else if (score >= 160 && incSpeed4 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed4 = false;
+            Debug.Log("call shorten speed");
+        }
         xRand = Random.Range(10, 30);
         yRand = Random.Range(10, 30);
         spawnNum = Random.Range(1, 5);

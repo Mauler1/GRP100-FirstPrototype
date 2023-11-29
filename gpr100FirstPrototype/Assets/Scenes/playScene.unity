@@ -3410,6 +3410,7 @@ MonoBehaviour:
   boomy: {fileID: 2065918879}
   boss1: {fileID: 931858017}
   spawnPoint: {fileID: 1161927244}
+  speedChange: {fileID: 1161927245}
 --- !u!4 &1489909868
 Transform:
   m_ObjectHideFlags: 0
