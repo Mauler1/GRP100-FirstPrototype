@@ -12,28 +12,61 @@ public class timer : MonoBehaviour
     private int convSec = 0;
     public pause timerEnd;
     public TextMeshProUGUI timeDisp;
+    public TextMeshProUGUI scoreDisp;
     private bool pauseCheck;
     public GameObject enemy;
     public GameObject speedy;
     public GameObject tanky;
+    public GameObject boomy;
     public GameObject boss1;
     public Transform spawnPoint;
-    private int xRand, yRand, negXRand, negYRand, spawnNum;
+    private int xRand, yRand, negXRand, negYRand, spawnNum, score = 0;
     private bool bossHappen = false;
+    public PlayerShooting speedChange;
+    private bool incSpeed = true, incSpeed2 = true, incSpeed3 = true, incSpeed4 = true;
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
         QualitySettings.vSyncCount = 0;  // this disables vsync so I can set the frame rate to limit the timer
         Application.targetFrameRate = 60; // hoepfully limit the frame rate
+    }
+
+    public void scoreChange(int amount)
+    {
+        score += amount;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (score >=40 && incSpeed != false)
+        {
+                speedChange.shootSpeed(0.2f);
+                incSpeed = false;
+                Debug.Log("call shorten speed");
+        }
+        else if (score >= 80 && incSpeed2 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed2 = false;
+            Debug.Log("call shorten speed");
+        }
+        else if (score >= 120 && incSpeed3 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed3 = false;
+            Debug.Log("call shorten speed");
+        }
+        else if (score >= 160 && incSpeed4 != false)
+        {
+            speedChange.shootSpeed(0.2f);
+            incSpeed4 = false;
+            Debug.Log("call shorten speed");
+        }
         xRand = Random.Range(10, 30);
         yRand = Random.Range(10, 30);
-        spawnNum = Random.Range(1, 4);
+        spawnNum = Random.Range(1, 5);
         negXRand = Random.Range(-10, -30);
         negYRand = Random.Range(-10, -30);
         Vector3 additive1 = new Vector3(xRand, yRand, 0f);
@@ -156,11 +189,34 @@ public class timer : MonoBehaviour
                             GameObject spawned2 = Instantiate(tanky, spawnPoint.position + additive3, spawnPoint.rotation);
                         }
                     }
+                else if (spawnNum == 4 && timeGoal <= 10800)
+                {
+                    if (convTime < 1)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive1, spawnPoint.rotation);
+                        GameObject spawned2 = Instantiate(boomy, spawnPoint.position + additive2, spawnPoint.rotation);
+                    }
+                    else if (convTime < 2)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive3, spawnPoint.rotation);
+
+
+                    }
+                    else if (convTime < 3)
+                    {
+                        GameObject spawned = Instantiate(boomy, spawnPoint.position + additive1, spawnPoint.rotation);
+                    }
+                    else
+                    {
+                        GameObject spawned2 = Instantiate(boomy, spawnPoint.position + additive3, spawnPoint.rotation);
+                    }
+                }
 
             }
             
 
             timeDisp.text = convTime.ToString() + ":" + convSec.ToString();
+            scoreDisp.text = "Score: " + score.ToString();
             if(convSec < 10)
             {
                 timeDisp.text = convTime.ToString() + ":0" + convSec.ToString();

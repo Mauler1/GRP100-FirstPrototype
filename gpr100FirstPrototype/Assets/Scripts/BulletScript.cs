@@ -6,6 +6,16 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject hitEffect;
+    public PlayerShooting damageGet;
+    public float damage = 1;
+    void start()
+    {
+        damage = damageGet.getDamage();
+    }
+    void update()
+    {
+        damage = damageGet.getDamage();
+    }
     void OnCollisionEnter2D(Collision2D collision){
 
         Destroy(gameObject);
@@ -18,17 +28,22 @@ public class BulletScript : MonoBehaviour
         Destroy(effect, 0.5f);
         AiHealthAndDamage enemy = collision.GetComponent<AiHealthAndDamage>();
        if(enemy != null){
-            enemy.TakeHit(2);
+            enemy.TakeHit(damage);
        }
        bossHealth boss = collision.GetComponent<bossHealth>();
        if (boss != null)
        {
-            boss.TakeHit(2);
+            boss.TakeHit(damage);
         }
        ShieldHpAndDamage shield = collision.GetComponent<ShieldHpAndDamage>();
        if (shield != null)
        {
-            shield.TakeHit(2);
+            shield.TakeHit(damage);
+        }
+        BoomeyHealth boom = collision.GetComponent<BoomeyHealth>();
+        if(boom != null)
+        {
+            boom.TakeHit(damage);
         }
     }
 

@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
     public float shotTime = 2;
+    public float damage = 1;
     public bool shootAgain = true;
     public float timer;
 
@@ -33,6 +34,18 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
+    }
+    public void shootSpeed(float adjust)
+    {
+        shotTime -= adjust;
+    }
+    public void shootDamage(float adjust)
+    {
+        damage += adjust;
+    }
+    public float getDamage() 
+    {
+        return damage;
     }
 
     void Shoot(){
