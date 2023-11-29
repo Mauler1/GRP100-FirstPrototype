@@ -12,20 +12,26 @@ public class timer : MonoBehaviour
     private int convSec = 0;
     public pause timerEnd;
     public TextMeshProUGUI timeDisp;
+    public TextMeshProUGUI scoreDisp;
     private bool pauseCheck;
     public GameObject enemy;
     public GameObject speedy;
     public GameObject tanky;
     public GameObject boss1;
     public Transform spawnPoint;
-    private int xRand, yRand, negXRand, negYRand, spawnNum;
+    private int xRand, yRand, negXRand, negYRand, spawnNum, score = 0;
     private bool bossHappen = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
         QualitySettings.vSyncCount = 0;  // this disables vsync so I can set the frame rate to limit the timer
         Application.targetFrameRate = 60; // hoepfully limit the frame rate
+    }
+
+    public void scoreChange(int amount)
+    {
+        score += amount;
     }
 
     // Update is called once per frame
@@ -161,6 +167,7 @@ public class timer : MonoBehaviour
             
 
             timeDisp.text = convTime.ToString() + ":" + convSec.ToString();
+            scoreDisp.text = "Score: " + score.ToString();
             if(convSec < 10)
             {
                 timeDisp.text = convTime.ToString() + ":0" + convSec.ToString();

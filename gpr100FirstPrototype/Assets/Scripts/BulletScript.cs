@@ -30,6 +30,11 @@ public class BulletScript : MonoBehaviour
        {
             shield.TakeHit(2);
         }
+        BoomeyHealth boom = collision.GetComponent<BoomeyHealth>();
+        if(boom != null)
+        {
+            boom.TakeHit(2);
+        }
     }
 
 }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+//boomey's mission is to kill elon musk
 public class BoomeyHealth : MonoBehaviour
 {
     public float Maxhealth = 3f;
     public float health;
     public float BoomRange = 300;
+    public timer scoreChanger;
+
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class BoomeyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            scoreChanger.scoreChange(1);
             var hitColliders = Physics2D.OverlapCircleAll(transform.position, BoomRange);
             foreach (var hitCollider in hitColliders) 
             {
@@ -37,6 +40,11 @@ public class BoomeyHealth : MonoBehaviour
                 if (shield != null)
                 {
                     shield.TakeHit(4);
+                }
+                PlayerHealth player = hitCollider.GetComponent<PlayerHealth>();
+                if (player != null)
+                {
+                    player.takeHit(1);
                 }
                 Destroy(gameObject);
             }
