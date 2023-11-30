@@ -8,11 +8,11 @@ public class BulletScript : MonoBehaviour
     public GameObject hitEffect;
     public PlayerShooting damageGet;
     public float damage = 1;
-    void start()
+    void Start()
     {
         damage = damageGet.getDamage();
     }
-    void update()
+    void Update()
     {
         damage = damageGet.getDamage();
     }

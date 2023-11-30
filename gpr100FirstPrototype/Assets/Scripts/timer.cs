@@ -40,7 +40,7 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (score >=40 && incSpeed != false)
+        if (score >=40 && incSpeed != false)
         {
                 speedChange.shootSpeed(0.1f);
                 incSpeed = false;
@@ -63,7 +63,7 @@ public class timer : MonoBehaviour
             speedChange.shootSpeed(0.1f);
             incSpeed4 = false;
             Debug.Log("call shorten speed");
-        }*/
+        }
         xRand = Random.Range(10, 30);
         yRand = Random.Range(10, 30);
         spawnNum = Random.Range(1, 5);
