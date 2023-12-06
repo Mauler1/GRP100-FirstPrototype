@@ -54,7 +54,7 @@ public class timer : MonoBehaviour
                 incSpeed = false;
                 Debug.Log("call shorten speed");
         }
-        else if (score >= 6 && incSpeed2 != false)
+        else if (score >= 80 && incSpeed2 != false)
         {
             speedChange.shootSpeed(0.1f);
             incSpeed2 = false;

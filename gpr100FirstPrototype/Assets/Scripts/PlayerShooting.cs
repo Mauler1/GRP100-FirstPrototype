@@ -15,9 +15,17 @@ public class PlayerShooting : MonoBehaviour
     public float shotTimer;
     public float higherCaliberPowerupTimer = 0;
 
+    void Start()
+    {
+        shotTime = 0.1f;
+    }
     // Update is called once per frame
     void Update()
     {
+        if(shotTime <= 0)
+        {
+            shotTime = 0.1f;
+        }
         //bonus shot powerup timer
         if(bulletNums > 1 && higherCaliberPowerupTimer < 45){
             higherCaliberPowerupTimer += Time.deltaTime;

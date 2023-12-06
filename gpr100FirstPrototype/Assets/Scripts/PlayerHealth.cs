@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float health = 10;
     public sceneChange playerDeath;
+    public TextMeshProUGUI healthNum;
 
     // Start is called before the first frame update
 
@@ -15,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0){
             playerDeath.SwitchScene();
         }
+        healthNum.text = "Health: " + health.ToString();
 
     }
 
