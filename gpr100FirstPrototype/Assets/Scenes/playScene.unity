@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4357376761696960854, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
       propertyPath: bulletNums
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4357376761696960854, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
       propertyPath: bulletPrefab
@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 1158264261}
     - target: {fileID: 4357376761696960854, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
       propertyPath: bulletSpread
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6416337386254445759, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
       propertyPath: m_Sprite
@@ -2797,7 +2797,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 12.8, y: 10.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2861,7 +2861,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 12.8, y: 10.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -29468,6 +29468,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.23, y: 4.14}
   m_EdgeRadius: 0
+--- !u!1 &998129914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998129915}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998129915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998129914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 931858022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009627529
 GameObject:
   m_ObjectHideFlags: 0
@@ -31902,16 +31933,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7303715538041442127, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303715538041442127, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7303715538041442127, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7303715538041442127, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303715538041442127, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8034269174236297432, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       propertyPath: m_LocalScale.x
@@ -31971,6 +32010,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8034269174236297432, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       insertIndex: -1
       addedObject: {fileID: 15468933}
+    - targetCorrespondingSourceObject: {fileID: 8034269174236297432, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 998129915}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8418985635367958518, guid: 468b74b9e0c03d14db413bef0ba30a56, type: 3}
       insertIndex: -1
