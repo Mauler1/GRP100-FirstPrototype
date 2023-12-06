@@ -19,12 +19,19 @@ public class timer : MonoBehaviour
     public GameObject tanky;
     public GameObject boomy;
     public GameObject boss1;
+    public GameObject powerUp;
     public Transform spawnPoint;
-    private int xRand, yRand, negXRand, negYRand, spawnNum; 
+    public Transform pow1;
+    public Transform pow2;
+    public Transform pow3;
+    public Transform pow4;
+    public Transform pow5;
+    private int xRand, yRand, negXRand, negYRand, spawnNum, powNum; 
     private float score = 0;
     private bool bossHappen = false;
     public PlayerShooting speedChange;
     private bool incSpeed = true, incSpeed2 = true, incSpeed3 = true, incSpeed4 = true;
+    public HigherCaliberPowerupScript power;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +77,7 @@ public class timer : MonoBehaviour
         spawnNum = Random.Range(1, 5);
         negXRand = Random.Range(-10, -30);
         negYRand = Random.Range(-10, -30);
+        powNum = Random.Range(1, 5);
         Vector3 additive1 = new Vector3(xRand, yRand, 0f);
         Vector3 additive2 = new Vector3(negXRand, negYRand, 0f);
         Vector3 additive3 = new Vector3(xRand, negYRand, 0f);
@@ -96,6 +104,27 @@ public class timer : MonoBehaviour
             {
                 GameObject spawned = Instantiate(boss1, spawnPoint.position + additive1, spawnPoint.rotation);
                 bossHappen = true;
+            }
+            if(timeGoal % 1800 == 0)
+            {
+                switch(powNum)
+                {
+                    case 1:
+                        GameObject pows = Instantiate(powerUp, pow1.position, pow1.rotation);
+                        break;
+                    case 2:
+                        GameObject pows2 = Instantiate(powerUp, pow2.position, pow1.rotation);
+                        break;
+                    case 3:
+                        GameObject pows3 = Instantiate(powerUp, pow3.position, pow1.rotation);
+                        break;
+                    case 4:
+                        GameObject pows4 = Instantiate(powerUp, pow4.position, pow1.rotation);
+                        break;
+                    case 5:
+                        GameObject pows5 = Instantiate(powerUp, pow5.position, pow1.rotation);
+                        break;
+                }
             }
             if(timeGoal % 60 == 0)
             {
