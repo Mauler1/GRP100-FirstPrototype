@@ -422,9 +422,12 @@ MonoBehaviour:
     Press Enter to view monster manual
 
     Press
-    Escape on this screen to close
+    Enter to return here from manual
 
-    the game
+    Press Escape on this screen to close
+
+    the
+    game
 
 '
   m_isRightToLeft: 0
