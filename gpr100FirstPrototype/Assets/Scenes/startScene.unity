@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 177359593}
   - component: {fileID: 177359592}
   - component: {fileID: 177359595}
+  - component: {fileID: 177359597}
+  - component: {fileID: 177359596}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -205,6 +207,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: playScene
+--- !u!114 &177359596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177359591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f067fba1796fa4a9ad770727cac5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: manual
+--- !u!114 &177359597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177359591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d6ff3c0c8fd5840a454aeaf47f39e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &192809462
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,16 +408,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Prototype Name:
+  m_text: 'Hoarder:
 
     WASD to move
 
-    Mouse to aim, left click to shoot
+    Mouse to aim, hold left click to shoot
 
     Escape
     to pause/unpause
 
     Press Space To Start
+
+    Press Enter to view monster manual
+
+    Press
+    Escape on this screen to close
+
+    the game
 
 '
   m_isRightToLeft: 0

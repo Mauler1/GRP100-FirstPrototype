@@ -20,7 +20,8 @@ public class timer : MonoBehaviour
     public GameObject boomy;
     public GameObject boss1;
     public Transform spawnPoint;
-    private int xRand, yRand, negXRand, negYRand, spawnNum, score = 0;
+    private int xRand, yRand, negXRand, negYRand, spawnNum; 
+    private float score = 0;
     private bool bossHappen = false;
     public PlayerShooting speedChange;
     private bool incSpeed = true, incSpeed2 = true, incSpeed3 = true, incSpeed4 = true;
@@ -32,7 +33,7 @@ public class timer : MonoBehaviour
         Application.targetFrameRate = 60; // hoepfully limit the frame rate
     }
 
-    public void scoreChange(int amount)
+    public void scoreChange(float amount)
     {
         score += amount;
     }

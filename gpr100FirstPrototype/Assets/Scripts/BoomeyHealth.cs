@@ -17,13 +17,21 @@ public class BoomeyHealth : MonoBehaviour
         health = Maxhealth;
     }
 
+    void selfBoom()
+    {
+        scoreChanger.scoreChange(0.5f);
+        Destroy(gameObject);
+
+        TakeHit(20);
+    }
+
     public void TakeHit(float damage)
     {
         health -= damage;
 
         if (health <= 0)
         {
-            scoreChanger.scoreChange(1);
+            
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             effect.transform.localScale = new Vector3(30, 30, 1);
             Destroy(effect, 0.5f);
@@ -49,6 +57,11 @@ public class BoomeyHealth : MonoBehaviour
                 if (player != null)
                 {
                     player.takeHit(1);
+                }
+                BoomeyHealth boom = hitCollider.GetComponent<BoomeyHealth>();
+                if (boom != null)
+                {
+                    boom.selfBoom();
                 }
                 Destroy(gameObject);
             }
