@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
-        shotTime = 0.1f;
+        shotTime = 0.6f;
     }
     // Update is called once per frame
     void Update()
