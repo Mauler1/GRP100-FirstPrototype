@@ -9,25 +9,39 @@ public class PlayerShooting : MonoBehaviour
     public float bulletForce = 20f;
     public float shotTime = 2;
     public float damage = 1;
+    public int bulletNums = 1;
+    public float bulletSpread = 0;
     public bool shootAgain = true;
-    public float timer;
+    public float shotTimer;
+    public float higherCaliberPowerupTimer = 0;
 
     // Update is called once per frame
     void Update()
     {
+        //bonus shot powerup timer
+        if(bulletNums > 1 && higherCaliberPowerupTimer < 45){
+            higherCaliberPowerupTimer += Time.deltaTime;
+        }
+
+        if(higherCaliberPowerupTimer >= 45){
+            higherCaliberPowerupTimer = 0;
+            lessBullet();
+        }
+        //
         
+        //time between shots timer
         if(shootAgain && Input.GetButton("Fire1")){
 
             Shoot();
             shootAgain = false;
-            timer = 0;
+            shotTimer = 0;
 
         }
-        if (timer < shotTime){
+        if (shotTimer < shotTime){
 
-            timer += Time.deltaTime;
+            shotTimer += Time.deltaTime;
 
-            if(timer >= shotTime){
+            if(shotTimer >= shotTime){
 
                 shootAgain = true;
 
@@ -43,14 +57,35 @@ public class PlayerShooting : MonoBehaviour
     {
         damage += adjust;
     }
+
+    public void addBullet(){
+        bulletNums += 1;
+        bulletSpread += 15;
+    }
+
+    public void lessBullet(){
+        bulletNums -= 1;
+        bulletSpread -= 15;
+    }
     public float getDamage() 
     {
         return damage;
     }
 
     void Shoot(){
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D _rb = bullet.GetComponent<Rigidbody2D>();
-        _rb.AddForce(firePoint.up*bulletForce, ForceMode2D.Impulse);
+        //bullet rotation and spread values
+        float spreadRot = bulletSpread/bulletNums;
+        Vector3 spread = firePoint.rotation.eulerAngles;
+        spread = new Vector3(spread.x, spread.y, spread.z - spreadRot);
+
+        for(int i = 0; i < bulletNums; i++){
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(spread));
+            Rigidbody2D _rb = bullet.GetComponent<Rigidbody2D>();
+            _rb.AddForce(bullet.transform.up*bulletForce, ForceMode2D.Impulse);
+
+            //bullet spread variability
+            //spreadRot -= 15;
+            spread = new Vector3(spread.x, spread.y, Random.Range(spread.z - spreadRot, spread.z + spreadRot));
+        }
     }
 }
