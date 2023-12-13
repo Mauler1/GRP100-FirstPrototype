@@ -380,6 +380,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8043309169962798887, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1705434469}
+    - target: {fileID: -8043309169962798887, guid: b3061a0730853d444b64078d61c07dc6, type: 3}
       propertyPath: healthNum
       value: 
       objectReference: {fileID: 2045477722}
