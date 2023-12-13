@@ -36,7 +36,8 @@ public class PlayerHealth : MonoBehaviour
         cam.transform.Rotate(camRot);
         yield return new WaitForSeconds(0.025f);
         cam.transform.Rotate(camRot);
-        yield return new WaitForSeconds(0.025f);
+        //midway through first part
+        yield return new WaitForSeconds(0.1f);
         cam.transform.Rotate(camRot2);
         yield return new WaitForSeconds(0.025f);
         cam.transform.Rotate(camRot2);
@@ -61,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         cam.transform.Rotate(camRot2);
         yield return new WaitForSeconds(0.025f);
         cam.transform.Rotate(camRot2);
-        yield return new WaitForSeconds(0.025f);
+        yield return new WaitForSeconds(0.1f);
         cam.transform.Rotate(camRot);
         yield return new WaitForSeconds(0.025f);
         cam.transform.Rotate(camRot);
