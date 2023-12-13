@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1420360058}
   - component: {fileID: 1420360057}
   - component: {fileID: 1420360060}
+  - component: {fileID: 1420360061}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -205,6 +206,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: startScene
+--- !u!114 &1420360061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420360056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d6ff3c0c8fd5840a454aeaf47f39e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1487557966
 GameObject:
   m_ObjectHideFlags: 0
