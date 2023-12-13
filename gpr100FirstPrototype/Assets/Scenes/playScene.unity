@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 413760657}
   - component: {fileID: 413760658}
   m_Layer: 0
-  m_Name: Square
+  m_Name: laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

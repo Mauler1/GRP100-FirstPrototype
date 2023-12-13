@@ -20,6 +20,10 @@ public class monsterManual : MonoBehaviour
         {
             SwitchScene();
         }
+        else if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            SwitchScene();
+        }
     }
     public void SwitchScene()
     {
