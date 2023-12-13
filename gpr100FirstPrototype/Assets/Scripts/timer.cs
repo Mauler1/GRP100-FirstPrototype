@@ -26,6 +26,7 @@ public class timer : MonoBehaviour
     public Transform pow3;
     public Transform pow4;
     public Transform pow5;
+    public GameObject grayOut;
     private int xRand, yRand, negXRand, negYRand, spawnNum, powNum; 
     private float score = 0;
     private bool bossHappen = false;
@@ -38,6 +39,7 @@ public class timer : MonoBehaviour
         score = 0;
         QualitySettings.vSyncCount = 0;  // this disables vsync so I can set the frame rate to limit the timer
         Application.targetFrameRate = 60; // hoepfully limit the frame rate
+
     }
 
     public void scoreChange(float amount)
@@ -48,6 +50,7 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grayOut.SetActive(false);
         if (score >=40 && incSpeed != false)
         {
                 speedChange.shootSpeed(0.1f);
@@ -251,6 +254,10 @@ public class timer : MonoBehaviour
             {
                 timeDisp.text = convTime.ToString() + ":0" + convSec.ToString();
             }
+        }
+        else
+        {
+            grayOut.SetActive(true);
         }
 
     }
